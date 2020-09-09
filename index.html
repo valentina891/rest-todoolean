@@ -12,11 +12,12 @@
 </head>
 <body>
 
-    <ol class="toDo-list">
+    <ol class="toDo-list"></ol>
 
-    </ol>
     <script id="entry-template" type="text/x-handlebars-template">
-        <li>{{testo}}</li>
+        <li data-id={id}}>{{testo}}
+            <span class="delete">X</span>
+        </li>
     </script>
 
 
