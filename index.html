@@ -12,10 +12,13 @@
 </head>
 <body>
 
+    <input type="text" name="" value="" id="add-item" placeholder="Inserisci qui">
+    <button type="button" name="button">Inserisci</button>
+
     <ol class="toDo-list"></ol>
 
     <script id="entry-template" type="text/x-handlebars-template">
-        <li data-id={id}}>{{testo}}
+        <li data-id={{id}}>{{testo}}
             <span class="delete">X</span>
         </li>
     </script>

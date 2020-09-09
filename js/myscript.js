@@ -9,9 +9,9 @@ $(document).ready(function(){
     $(document).on('click', '.delete', function(){
         var cliccato = $(this);
         // console.log(cliccato);
-
         var id = cliccato.parent().attr('data-id');
         deleteElement(id);
+
     });
 });
 
@@ -24,7 +24,7 @@ function deleteElement(data){
         url: 'http://157.230.17.132:3027/todos/' + data,
         method: 'DELETE',
         success: function(risposta){
-            console.log(risposta)
+            // console.log(risposta)
             $('.toDo-list').html('');
             getElement();
         },
