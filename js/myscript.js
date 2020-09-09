@@ -11,7 +11,12 @@ $(document).ready(function(){
         // console.log(cliccato);
         var id = cliccato.parent().attr('data-id');
         deleteElement(id);
+    });
 
+    $('.inserisci').click(function(){
+        var addItem = $('#add-item').val();
+        // console.log(addItem);
+        createElement(addItem);
     });
 });
 
@@ -19,6 +24,25 @@ $(document).ready(function(){
 
 
 //******FUNZIONI*******//
+
+function createElement(data){
+    $.ajax({
+        url: 'http://157.230.17.132:3027/todos/',
+        method: 'POST',
+        data: {
+            text: data
+        },
+        success: function(risposta){
+            // console.log(risposta)
+            $('.toDo-list').html('');
+            getElement();
+        },
+        error: function() {
+            alert('Errore!');
+        }
+    });
+}
+
 function deleteElement(data){
     $.ajax({
         url: 'http://157.230.17.132:3027/todos/' + data,
