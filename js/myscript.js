@@ -18,12 +18,46 @@ $(document).ready(function(){
         // console.log(addItem);
         createElement(addItem);
     });
+
+    $(document).on('click', 'span.testo', function(){
+        $(this).addClass('hidden');
+        $(this).siblings('input').removeClass('hidden');
+    });
+
+    $(document).on('keyup', '.edit-item', function(){
+        if (event.keyCode == 13 || event.which == 13){
+            var editItem = $(this).val();
+            console.log(editItem)
+            var id = $(this).parent().attr('data-id');
+            console.log(id)
+            editElement(editItem, id);
+        }
+    });
 });
 
 
 
 
 //******FUNZIONI*******//
+
+function editElement(data, id){
+    $.ajax({
+        url: 'http://157.230.17.132:3027/todos/' + id,
+        method: 'PUT',
+        data: {
+            text: data,
+        },
+        success: function(risposta){
+            // console.log(risposta)
+            $('.toDo-list').html('');
+            getElement();
+        },
+        error: function() {
+            alert('Errore!');
+        }
+    });
+
+}
 
 function createElement(data){
     $.ajax({

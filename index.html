@@ -18,8 +18,10 @@
     <ol class="toDo-list"></ol>
 
     <script id="entry-template" type="text/x-handlebars-template">
-        <li data-id={{id}}>{{testo}}
+        <li data-id={{id}}>
             <span class="delete">X</span>
+            <span class="testo">{{testo}}</span>
+            <input type="text" class="hidden edit-item" value="{{testo}}">
         </li>
     </script>
 
